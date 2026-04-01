@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Farm2Home</title>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+}
+
+/* Navbar */
+header {
+  background: #2e7d32;
+  color: white;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav a {
+  color: white;
+  margin: 10px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #c8e6c9;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(to right, #66bb6a, #a5d6a7);
+  text-align: center;
+  padding: 80px 20px;
+  color: white;
+}
+
+.hero h1 {
+  font-size: 40px;
+}
+
+.hero button {
+  padding: 12px 25px;
+  border: none;
+  background: white;
+  color: #2e7d32;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.hero button:hover {
+  background: #f1f8e9;
+}
+
+/* Section Title */
+.section-title {
+  text-align: center;
+  margin-top: 40px;
+  color: #2e7d32;
+}
+
+/* Grid Layout */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Cards */
+.card {
+  background: white;
+  border-radius: 12px;
+  text-align: center;
+  padding: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card img {
+  width: 100%;
+  height: 150px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+/* Categories */
+.category {
+  background: #c8e6c9;
+  padding: 20px;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+/* Footer */
+footer {
+  background: #2e7d32;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-top: 30px;
+}
+</style>
+
+</head>
+<body>
+
+<!-- Navbar -->
+<header>
+<h2>🌱 Farm2Home</h2>
+<nav>
+<a href="index.html">Home</a>
+<a href="products.html">Products</a>
+<a href="cart.html">Cart</a>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+<a href="login.html">Login</a>
+</nav>
+</header>
+
+<!-- Hero Section -->
+<section class="hero">
+<h1>Fresh from Farm to Your Doorstep</h1>
+<p>Healthy, Organic & Direct from Farmers</p>
+<button onclick="location.href='products.html'">Shop Now</button>
+</section>
+
+<!-- Categories -->
+<h2 class="section-title">Our Categories</h2>
+<div class="grid">
+<div class="category">🍎 Fruits</div>
+<div class="category">🥦 Vegetables</div>
+<div class="category">🥛 Dairy</div>
+<div class="category">🌿 Organic</div>
+</div>
+
+<!-- Featured Products -->
+<h2 class="section-title">Featured Products</h2>
+<div class="grid">
+
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Red_Apple.jpg">
+<h3>Apple</h3>
+<p>₹100</p>
+</div>
+
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Banana-Single.jpg">
+<h3>Banana</h3>
+<p>₹40</p>
+</div>
+
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/2/25/Onion_on_White.JPG">
+<h3>Onion</h3>
+<p>₹30</p>
+</div>
+
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/8/88/Bright_red_tomato_and_cross_section02.jpg">
+<h3>Tomato</h3>
+<p>₹35</p>
+</div>
+
+</div>
+
+<!-- Footer -->
+<footer>
+<p>🌿 Fresh | Organic | Direct from Farmers</p>
+<p>Contact: farm2home@email.com</p>
+</footer>
+
+</body>
+</html>

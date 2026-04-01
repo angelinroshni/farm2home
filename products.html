@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Products - Farm2Home</title>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f1f8e9;
+}
+
+header {
+  background: #2e7d32;
+  color: white;
+  padding: 15px;
+  text-align: center;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  text-align: center;
+  padding: 15px;
+}
+
+.card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+button {
+  background: #66bb6a;
+  border: none;
+  padding: 10px;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+</style>
+
+</head>
+<body>
+
+<header>
+<h1>🌱 Fresh Products</h1>
+</header>
+
+<section class="products">
+
+<!-- Apple -->
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Red_Apple.jpg" alt="Apple">
+<h3>Apple</h3>
+<p>₹100</p>
+<button onclick="addToCart('Apple',100)">Add to Cart</button>
+</div>
+
+<!-- Banana -->
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Banana-Single.jpg" alt="Banana">
+<h3>Banana</h3>
+<p>₹40</p>
+<button onclick="addToCart('Banana',40)">Add to Cart</button>
+</div>
+
+<!-- Onion -->
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/2/25/Onion_on_White.JPG" alt="Onion">
+<h3>Onion</h3>
+<p>₹30</p>
+<button onclick="addToCart('Onion',30)">Add to Cart</button>
+</div>
+
+<!-- Tomato -->
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/8/88/Bright_red_tomato_and_cross_section02.jpg" alt="Tomato">
+<h3>Tomato</h3>
+<p>₹35</p>
+<button onclick="addToCart('Tomato',35)">Add to Cart</button>
+</div>
+
+</section>
+
+<script>
+function addToCart(name, price){
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  cart.push({name, price});
+  localStorage.setItem('cart', JSON.stringify(cart));
+  alert(name + " added to cart!");
+}
+</script>
+
+</body>
+</html>

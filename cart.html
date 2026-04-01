@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cart - Farm2Home</title>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f1f8e9;
+}
+
+/* Header */
+header {
+  background: #2e7d32;
+  color: white;
+  padding: 15px;
+  text-align: center;
+}
+
+/* Container */
+.container {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+/* Cart Card */
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Item Info */
+.item-info {
+  font-size: 18px;
+}
+
+/* Buttons */
+.btn {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin: 2px;
+}
+
+.add { background: #66bb6a; color: white; }
+.sub { background: #ffa726; color: white; }
+.remove { background: #ef5350; color: white; }
+
+/* Total Box */
+.total-box {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.checkout-btn {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background: #2e7d32;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+</style>
+
+</head>
+<body>
+
+<header>
+<h1>🛒 Your Cart</h1>
+</header>
+
+<div class="container">
+<div id="cartItems"></div>
+
+<div class="total-box">
+<h2 id="total"></h2>
+<button class="checkout-btn" onclick="goToCheckout()">Proceed to Checkout</button>
+</div>
+</div>
+
+<script>
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+// Add quantity field
+cart = cart.map(item => ({...item, qty: item.qty || 1}));
+
+function displayCart(){
+  let container = document.getElementById('cartItems');
+  container.innerHTML = "";
+  let total = 0;
+
+  cart.forEach((item, index) => {
+    let div = document.createElement('div');
+    div.className = "cart-item";
+
+    div.innerHTML = `
+      <div class="item-info">
+        <strong>${item.name}</strong><br>
+        ₹${item.price} × ${item.qty}
+      </div>
+
+      <div>
+        <button class="btn add" onclick="increaseQty(${index})">+</button>
+        <button class="btn sub" onclick="decreaseQty(${index})">-</button>
+        <button class="btn remove" onclick="removeItem(${index})">Remove</button>
+      </div>
+    `;
+
+    container.appendChild(div);
+    total += item.price * item.qty;
+  });
+
+  document.getElementById('total').innerText = "Total: ₹" + total;
+
+  localStorage.setItem('cart', JSON.stringify(cart));
+}
+
+function increaseQty(i){
+  cart[i].qty++;
+  displayCart();
+}
+
+function decreaseQty(i){
+  if(cart[i].qty > 1){
+    cart[i].qty--;
+  }
+  displayCart();
+}
+
+function removeItem(i){
+  cart.splice(i, 1);
+  displayCart();
+}
+
+function goToCheckout(){
+  window.location.href = "checkout.html";
+}
+
+displayCart();
+</script>
+
+</body>
+</html>
